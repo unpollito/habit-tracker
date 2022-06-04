@@ -1,0 +1,15 @@
+[package]
+name = "habit-tracker-backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+argon2 = "0.3"
+base64 = "0.13.0"
+log = "0.4.17"
+pretty_env_logger = "0.4.0"
+rand = { version = "0.8.5", features = ["std_rng"] }
+rand_core = { version = "0.6", features = ["std"] }
+rocket = "0.5.0-rc.2"
