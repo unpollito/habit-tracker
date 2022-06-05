@@ -18,8 +18,12 @@ fn index() -> &'static str {
     "See console"
 }
 
-#[launch]
-fn rocket() -> _ {
-    pretty_env_logger::init_timed();
-    rocket::build().mount("/", routes![index])
+#[rocket::main]
+async fn main() -> Result<(), rocket::Error> {
+    let _rocket = rocket::build()
+        .mount("/hello", routes![index])
+        .launch()
+        .await?;
+
+    Ok(())
 }

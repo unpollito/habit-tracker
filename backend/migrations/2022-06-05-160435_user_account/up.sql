@@ -20,4 +20,4 @@ CREATE TABLE public.user_activation_token
     created_at timestamp NOT NULL DEFAULT NOW(),
     PRIMARY KEY (user_id),
     FOREIGN KEY (user_id) REFERENCES user_account (id) ON DELETE CASCADE
-)
+);

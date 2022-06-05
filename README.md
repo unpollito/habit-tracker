@@ -12,10 +12,15 @@ Habit tracker app
 2. Ensure that you have a [PostgreSQL](https://www.postgresql.org/) database
    running.
    
-3. Create a `backend/refinery.toml` file using `backend/refinery.toml.sample`
-   as a reference, with your DB access data.
+3. Ensure that you have your `libpq-dev` package installed in Linux, or that
+   [it is added to the PATH in Windows](https://stackoverflow.com/questions/62708607/how-to-fix-rust-diesel-cli-link-libpq-lib-error-on-install).
+   
+4. Install `diesel_cli` with PostgreSQL support:
+   `cargo install diesel_cli --no-default-features --features postgres`.
 
-4. Install `refinery_cli`: `cargo install refinery_cli`.
+    1. On Windows, you might need to add the PostgreSQL `bin` file (e.g.,
+	   `C:\Program Files\PostgreSQL\bin\14` to your PATH for Diesel to work.
+   
+5. Set your DB data in the `.env` file. Use `.env.sample` as a reference.
 
-5. Set up DB by running migrations: `cd backend` and
-   `refinery migrate -c refinery.toml -p src/db/migrations`.
+6. Set the up DB by running migrations: `diesel migration run`.
